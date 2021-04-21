@@ -10,12 +10,12 @@
 static struct timeval TIMEOUT = { 25, 0 };
 
 wyjscie *
-convert_1(wejscie *argp, CLIENT *clnt)
+obliczenia_1(wejscie *argp, CLIENT *clnt)
 {
 	static wyjscie clnt_res;
 
 	memset((char *)&clnt_res, 0, sizeof(clnt_res));
-	if (clnt_call (clnt, CONVERT,
+	if (clnt_call (clnt, OBLICZENIA,
 		(xdrproc_t) xdr_wejscie, (caddr_t) argp,
 		(xdrproc_t) xdr_wyjscie, (caddr_t) &clnt_res,
 		TIMEOUT) != RPC_SUCCESS) {

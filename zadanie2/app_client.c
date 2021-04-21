@@ -12,7 +12,7 @@ testowy_1(char *host)
 {
 	CLIENT *clnt;
 	wyjscie  *result_1;
-	wejscie  message_arg;
+	wejscie  message_1_arg;
 
 #ifndef	DEBUG
 	clnt = clnt_create (host, TESTOWY, PROBNA, "udp");
@@ -22,14 +22,13 @@ testowy_1(char *host)
 	}
 #endif	/* DEBUG */
 
-	scanf("%s", message_arg.buffer);
-	result_1 = message_(&message_arg, clnt);
+	printf("Podaj wiadomosc");
+	scanf("%s", message_1_arg.buffer);
+	message_1_arg.size = strlen(message_1_arg.buffer);
+	result_1 = obliczenia_1(&message_1_arg, clnt);
 	if (result_1 == (wyjscie *) NULL) {
 		clnt_perror (clnt, "call failed");
 	}
-
-	printf("Message:",
-		result_1->buffer);
 
 #ifndef	DEBUG
 	clnt_destroy (clnt);
@@ -46,6 +45,6 @@ main (int argc, char *argv[])
 		exit (1);
 	}
 	host = argv[1];
-	testowy_1(host);
+	testowy_1 (host);
 exit (0);
 }

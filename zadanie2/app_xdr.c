@@ -11,6 +11,8 @@ xdr_wejscie (XDR *xdrs, wejscie *objp)
 	register int32_t *buf;
 
 	int i;
+	 if (!xdr_int (xdrs, &objp->size))
+		 return FALSE;
 	 if (!xdr_vector (xdrs, (char *)objp->buffer, 255,
 		sizeof (char), (xdrproc_t) xdr_char))
 		 return FALSE;

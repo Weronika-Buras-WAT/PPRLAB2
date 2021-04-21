@@ -15,6 +15,7 @@ extern "C" {
 
 
 struct wejscie {
+	int size;
 	char buffer[255];
 };
 typedef struct wejscie wejscie;
@@ -28,15 +29,15 @@ typedef struct wyjscie wyjscie;
 #define PROBNA 1
 
 #if defined(__STDC__) || defined(__cplusplus)
-#define CONVERT 1
-extern  wyjscie * convert_1(wejscie *, CLIENT *);
-extern  wyjscie * convert_1_svc(wejscie *, struct svc_req *);
+#define OBLICZENIA 1
+extern  wyjscie * obliczenia_1(wejscie *, CLIENT *);
+extern  wyjscie * obliczenia_1_svc(wejscie *, struct svc_req *);
 extern int testowy_1_freeresult (SVCXPRT *, xdrproc_t, caddr_t);
 
 #else /* K&R C */
-#define CONVERT 1
-extern  wyjscie * convert_1();
-extern  wyjscie * convert_1_svc();
+#define OBLICZENIA 1
+extern  wyjscie * obliczenia_1();
+extern  wyjscie * obliczenia_1_svc();
 extern int testowy_1_freeresult ();
 #endif /* K&R C */
 

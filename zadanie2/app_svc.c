@@ -20,7 +20,7 @@ static void
 testowy_1(struct svc_req *rqstp, register SVCXPRT *transp)
 {
 	union {
-		wejscie convert_1_arg;
+		wejscie obliczenia_1_arg;
 	} argument;
 	char *result;
 	xdrproc_t _xdr_argument, _xdr_result;
@@ -31,10 +31,10 @@ testowy_1(struct svc_req *rqstp, register SVCXPRT *transp)
 		(void) svc_sendreply (transp, (xdrproc_t) xdr_void, (char *)NULL);
 		return;
 
-	case CONVERT:
+	case OBLICZENIA:
 		_xdr_argument = (xdrproc_t) xdr_wejscie;
 		_xdr_result = (xdrproc_t) xdr_wyjscie;
-		local = (char *(*)(char *, struct svc_req *)) convert_1_svc;
+		local = (char *(*)(char *, struct svc_req *)) obliczenia_1_svc;
 		break;
 
 	default:

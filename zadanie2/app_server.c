@@ -7,18 +7,16 @@
 #include "app.h"
 
 wyjscie *
-convert_svc(wejscie *argp, struct svc_req *rqstp)
+obliczenia_1_svc(wejscie *argp, struct svc_req *rqstp)
 {
 	static wyjscie  result;
 
-	/*
-	 * insert server code here
-	 */
-
-	for (int i=0, j =0; i < strlen(argp->buffer); ++i, j+=2)
+	for (int i=0; i < (argp->size); ++i)
 	{
-		sprintf(result.buffer + j, "%02x", argp->buffer[i] & 0xff);
+		printf("%02x", argp->buffer[i]);
 	}
 
+	printf("\n");
+	fflush(stdout);
 	return &result;
 }

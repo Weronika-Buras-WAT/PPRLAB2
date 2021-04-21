@@ -11,6 +11,7 @@
 	Dlatego nalezy definiowac odpowiednie struktury
 *************************************/
 struct wejscie {
+	int size;
 	char buffer[255];
 	
 };
@@ -22,7 +23,7 @@ struct wyjscie {
 program TESTOWY{
 	version PROBNA{
 			/* definicja procedury nr 1 */
-	wyjscie CONVERT( wejscie) = 1;	
+	wyjscie OBLICZENIA( wejscie) = 1;	
 	} = 1;		/* nr wersji */	
 } = 0x21000000;		/* nr programu */	
 	
